@@ -7,7 +7,7 @@ import TopBar from './layout/TopBar';
 
 const Home = () => {
 
-    const {  setLat, setLon } = useWeatherStore();
+    const {  setLat, setLon,lat,lon } = useWeatherStore();
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -18,6 +18,12 @@ const Home = () => {
         getForecast();
         getFetchWeather();
     }, [])
+
+    useEffect(() => {
+        getCurrentWeather();
+        getForecast();
+        getFetchWeather();
+    }, [lat,lon])
 
     return (
         <div className='mb-5 space-y-4'>
