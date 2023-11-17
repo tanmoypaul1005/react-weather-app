@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 const MainBody = () => {
 
-    const { currentWeather, forecast, weatherDetails,selectedCity } = useWeatherStore();
+    const { currentWeather, forecast, weatherDetails,selectedCity,selectedCountry,findWeatherDetails } = useWeatherStore();
 
     const date = new Date(); // Creating a Date object for May 10, 2020
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -32,6 +32,8 @@ const MainBody = () => {
         return currentTime.toLocaleTimeString('en-US', options);
     }
 
+    // console.log("weatherDetails",weatherDetails)
+
     return (
         <div>
 
@@ -39,7 +41,9 @@ const MainBody = () => {
                 <div className="flex flex-col bg-gray-800 text-white rounded p-4 w-full ">
                     <div className='flex justify-between'>
                         <div>
-                            <div className="font-bold text-xl">{selectedCity?.label ?? currentWeather?.name}</div>
+                            <div className="font-bold text-xl">
+                                {selectedCity?.label && findWeatherDetails? `${selectedCity?.label},${selectedCountry?.label}`: currentWeather?.name}
+                            </div>
                             <div className="text-sm text-gray-500">{formattedDate}</div>
                             <div className="text-sm text-gray-500">{currentTime}</div>
                         </div>

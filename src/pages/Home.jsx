@@ -20,7 +20,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div className=' mb-5 space-y-4'>
+        <div className='mb-5 space-y-4'>
             <TopBar />
             <MainBody />
         </div>

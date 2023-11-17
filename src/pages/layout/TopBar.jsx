@@ -8,7 +8,7 @@ import useWeatherStore, { getCurrentWeather, getFetchWeather, getForecast } from
 
 const TopBar = () => {
 
-    const { allCountries, setAllCountries, selectedCountry, setSelectedCountry,selectedCity, setSelectedCity } = useWeatherStore();
+    const { setFindWeatherDetails,allCountries, setAllCountries, selectedCountry, setSelectedCountry,selectedCity, setSelectedCity } = useWeatherStore();
 
     useEffect(() => {
         setAllCountries(
@@ -34,6 +34,7 @@ const TopBar = () => {
     };
 
     const getWeatherDetails = async (e) => {
+        setFindWeatherDetails(true);
         e.preventDefault();
         getFetchWeather();
         getCurrentWeather();
@@ -55,7 +56,6 @@ const TopBar = () => {
                     </div>
 
                     <div className='w-full'>
-
                         <Select
                             placeholder="Select Area"
                             options={City.getCitiesOfCountry(
@@ -74,8 +74,7 @@ const TopBar = () => {
                     </div>
                     <button
                         onClick={getWeatherDetails}
-                        className="bg-green-400 w-full py-2 rounded-md text-white text-sm font-bold hover:scale-105 transition-all duration-200 ease-in-out"
-    >
+                        className="bg-green-400 w-full py-2 rounded-md text-white text-sm font-bold hover:scale-105 transition-all duration-200 ease-in-out">
                         Get Weather
                     </button>
                 </div>

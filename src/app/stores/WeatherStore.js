@@ -13,6 +13,8 @@ const useWeatherStore = create((set) => ({
     lon: 90.38540000,
     setLon: (value) => set({ lon: value }),
 
+    findWeatherDetails: false,
+    setFindWeatherDetails: (value) => set({ findWeatherDetails: value }),
 
     currentWeather: null,
     setCurrentWeather: (value) => set({ currentWeather: value }),
