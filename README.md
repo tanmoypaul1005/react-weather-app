@@ -13,12 +13,16 @@ Before you begin, make sure you have the following installed on your machine:
 
 Open your terminal and run the following command to clone the repository:
 
-```bash
+# Clone the Repository
 git clone https://github.com/tanmoypaul1005/react-weather-app.git
 
-##  Navigate to the Project Directory
-Change your working directory to the project folder:
-
-```bash
+# Navigate to the Project Directory
 cd react-weather-app
+
+# Install Dependencies
+npm install
+
+# Start the Development Server
+npm start
+
 
